@@ -1,0 +1,126 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "Komatsu-MF-ADF"
+		},
+		"Ls_Hyderdation_file_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'Ls_Hyderdation_file'"
+		},
+		"ds_hyderationfile_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ds_hyderationfile'"
+		},
+		"ds_target_sharepoint_file_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ds_target_sharepoint_file'"
+		},
+		"ls_ADLS_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ls_ADLS'"
+		},
+		"ls_ADLS_insurance_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_ADLS_insurance'"
+		},
+		"ls_onprem_sql_Insurance_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'ls_onprem_sql_Insurance'"
+		},
+		"Ls_Hyderdation_file_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://cignainsurance.dfs.core.windows.net/"
+		},
+		"ds_hyderationfile_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://cignainsurance.dfs.core.windows.net/"
+		},
+		"ls_ADLS_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://cignainsurance.dfs.core.windows.net/"
+		},
+		"ls_onprem_sql_Insurance_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "AJAY"
+		},
+		"ls_onprem_sql_Insurance_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "Insurance_Project"
+		},
+		"ls_onprem_sql_Insurance_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "AJAY\\Ajay"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "Komatsu-MF-ADF_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"Ls_Hyderdation_file_accountKey": {
+						"value": "[parameters('Ls_Hyderdation_file_accountKey')]"
+					},
+					"ds_hyderationfile_accountKey": {
+						"value": "[parameters('ds_hyderationfile_accountKey')]"
+					},
+					"ds_target_sharepoint_file_connectionString": {
+						"value": "[parameters('ds_target_sharepoint_file_connectionString')]"
+					},
+					"ls_ADLS_accountKey": {
+						"value": "[parameters('ls_ADLS_accountKey')]"
+					},
+					"ls_ADLS_insurance_connectionString": {
+						"value": "[parameters('ls_ADLS_insurance_connectionString')]"
+					},
+					"ls_onprem_sql_Insurance_password": {
+						"value": "[parameters('ls_onprem_sql_Insurance_password')]"
+					},
+					"Ls_Hyderdation_file_properties_typeProperties_url": {
+						"value": "[parameters('Ls_Hyderdation_file_properties_typeProperties_url')]"
+					},
+					"ds_hyderationfile_properties_typeProperties_url": {
+						"value": "[parameters('ds_hyderationfile_properties_typeProperties_url')]"
+					},
+					"ls_ADLS_properties_typeProperties_url": {
+						"value": "[parameters('ls_ADLS_properties_typeProperties_url')]"
+					},
+					"ls_onprem_sql_Insurance_properties_typeProperties_server": {
+						"value": "[parameters('ls_onprem_sql_Insurance_properties_typeProperties_server')]"
+					},
+					"ls_onprem_sql_Insurance_properties_typeProperties_database": {
+						"value": "[parameters('ls_onprem_sql_Insurance_properties_typeProperties_database')]"
+					},
+					"ls_onprem_sql_Insurance_properties_typeProperties_userName": {
+						"value": "[parameters('ls_onprem_sql_Insurance_properties_typeProperties_userName')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}

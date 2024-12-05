@@ -1,0 +1,51 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "Komatsu-MF-ADF"
+		},
+		"Ls_Hyderdation_file_accountKey": {
+			"value": ""
+		},
+		"ds_hyderationfile_accountKey": {
+			"value": ""
+		},
+		"ds_target_sharepoint_file_connectionString": {
+			"value": ""
+		},
+		"ls_ADLS_accountKey": {
+			"value": ""
+		},
+		"ls_ADLS_insurance_connectionString": {
+			"value": ""
+		},
+		"ls_onprem_sql_Insurance_password": {
+			"value": ""
+		},
+		"Ls_Hyderdation_file_properties_typeProperties_url": {
+			"value": "https://cignainsurance.dfs.core.windows.net/"
+		},
+		"ds_hyderationfile_properties_typeProperties_url": {
+			"value": "https://cignainsurance.dfs.core.windows.net/"
+		},
+		"ls_ADLS_properties_typeProperties_url": {
+			"value": "https://cignainsurance.dfs.core.windows.net/"
+		},
+		"ls_onprem_sql_Insurance_properties_typeProperties_server": {
+			"value": "AJAY"
+		},
+		"ls_onprem_sql_Insurance_properties_typeProperties_database": {
+			"value": "Insurance_Project"
+		},
+		"ls_onprem_sql_Insurance_properties_typeProperties_userName": {
+			"value": "AJAY\\Ajay"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
